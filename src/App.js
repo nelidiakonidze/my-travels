@@ -29,39 +29,45 @@ const MyTravelHistory = (props) => {
   );
 }
 
+const tripData = [{
+  destination: "Ushguli",
+  country: "Georgia",
+  photo: './photos/ushguli.jpg',
+  distance: "3.122km",
+}, {
+  destination: "Tunnel Beach, Dunedin",
+  country: "New Zealand",
+  photo: './photos/IMG_7150.jpg',
+  distance: "63.66 km",
+}, {
+  destination: "La Barceloneta, Barcelona, Home",
+  country: "Spain",
+  photo: './photos/home.jpg',
+  distance: "1873 km",
+
+}, {
+  destination: "Somewhere in Rome",
+  country: "Italy",
+  photo: './photos/rome.jpg',
+  distance: "1509 km",
+}, {
+  destination: "El puente de Triana! ",
+  country: "Sevilla",
+  photo: './photos/ams.jpg',
+  distance: "2300 km",
+}
+
+];
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Title />
         <div className="container">
-          <MyTravelHistory
-            destination="Ushguli"
-            country="Georgia"
-            photo='./photos/ushguli.jpg'
-            distance="3.122km"
-          />
-
-          <MyTravelHistory
-            destination="Tunnel Beach, Dunedin"
-            country="New Zealand"
-            photo='./photos/IMG_7150.jpg'
-            distance="63.66 km"
-          />
-
-          <MyTravelHistory
-            destination="La Barceloneta, Barcelona, Home"
-            country="Spain"
-            photo='./photos/home.jpg'
-            distance="1873 km"
-          />
-
-          <MyTravelHistory
-            destination="Somewhere in Rome"
-            country="Italy"
-            photo='./photos/rome.jpg'
-            distance="1509 km"
-          />
+          {
+            tripData.map(item => <MyTravelHistory destination={item.destination} country={item.country} photo={item.photo} distance={item.distance}/>)
+          }
         </div>
 
       </div>
